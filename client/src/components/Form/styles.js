@@ -24,6 +24,7 @@ export default makeStyles((theme) => ({
     },
     paper: {
         padding: theme.spacing(2),
+        boxShadow: '5px 5px 10px 5px #edc0f6',
     },
     form: {
         display: 'flex',

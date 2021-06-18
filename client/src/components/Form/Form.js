@@ -60,7 +60,7 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.form} ${classes.root}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">{currentId ? 'Editing' : 'Creating'} a Memory</Typography>
+                <Typography variant="h5" style={{ color: '#fa5a66' }} >{currentId ? 'Edit' : 'Share'}</Typography>
                 <TextField
                     name="title"
                     variant="outlined"
@@ -80,7 +80,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 <TextField
                     name="tags"
                     variant="outlined"
-                    label="Tags"
+                    label="Tags(comma in between)"
                     fullWidth
                     value={postData.tags}
                     onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })}
