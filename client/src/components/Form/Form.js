@@ -16,6 +16,7 @@ const Form = ({ currentId, setCurrentId }) => {
         tags: '',
         selectedFile: ''
     });
+
     const user = JSON.parse(localStorage.getItem('profile'));
 
     useEffect(() => {
@@ -69,6 +70,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     value={postData.title}
                     onChange={(e) => setPostData({ ...postData, title: e.target.value })}
                 />
+
                 <TextField
                     name="message"
                     variant="outlined"
@@ -77,6 +79,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     value={postData.message}
                     onChange={(e) => setPostData({ ...postData, message: e.target.value })}
                 />
+
                 <TextField
                     name="tags"
                     variant="outlined"
@@ -92,6 +95,7 @@ const Form = ({ currentId, setCurrentId }) => {
                         onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
                     />
                 </div>
+
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth> Submit </Button>
                 <Button variant="contained" color="secondary" size="small" onClick={handleClear} fullWidth> CLear </Button>
             </form>

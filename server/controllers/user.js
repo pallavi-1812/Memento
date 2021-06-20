@@ -19,13 +19,13 @@ export const signin = async (req, res) => {
         res.status(200).json({ result: existingUser, token });
 
     } catch (error) {
-        res.status(500).json({ message: 'Something went wrong' });
+        console.log(error);
+        res.status(500).json({ message: error.message });
     }
 }
 
 export const signup = async (req, res) => {
     const { email, password, confirmPassword, firstName, lastName } = req.body;
-
     try {
         const oldUser = await User.findOne({ email });
 
@@ -42,6 +42,6 @@ export const signup = async (req, res) => {
         res.status(201).json({ result, token });
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: "Something went wrong" });
+        res.status(500).json({ message: error.message });
     }
 }
