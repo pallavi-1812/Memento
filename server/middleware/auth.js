@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
         const isCustomAuth = (token.length) < 500 ? true : false; //whether token is custom or google's auth, if it's > than 500 then its google auth 
         let decodedData;
         if (token && isCustomAuth) {
-            decodedData = jwt.verify(token, 'secretString');
+            decodedData = jwt.verify(token, process.env.SECRET_KEY);
             req.userId = decodedData?.id;
         } else {
             decodedData = jwt.decode(token);
